@@ -15,7 +15,7 @@
  */
 
 /*
- * cc -shared -o adjust_arc4random.so -Wall adjust_arc4random.c
+ * cc -shared -o tweak_arc4random.so -Wall tweak_arc4random.c
  */
 #include <sys/types.h>
 #include <dlfcn.h>
@@ -51,7 +51,7 @@ arc4random(void)
 
 	arc4random_initialize();
 
-	if ((str = getenv("ADJUST_ARC4RANDOM_NBITS")) != NULL) {
+	if ((str = getenv("TWEAK_ARC4RANDOM_NBITS")) != NULL) {
 		nbits = strtonum(str, 0, 32, &errstr);
 		if (errstr != NULL)
 			nbits = 32;
